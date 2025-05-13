@@ -1,11 +1,12 @@
 import React from 'react';
+import { LOGO_URL } from '../utils/constant';
 
 const Navbar = () => {
   return (
     <nav className='flex items-center justify-between px-6 py-4 text-xl bg-white shadow-sm'>
       <div>
         <img
-          src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/store-logo-design-template-3ac57f780d1cae2a6d3a049f82c62437_screen.jpg?ts=1646205211'
+          src={LOGO_URL}
           alt='Store Logo'
           className='w-20 h-20'
         />
