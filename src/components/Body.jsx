@@ -1,12 +1,24 @@
 import  React, { useState } from 'react';
 import ProductCard from './Productcard'; // Make sure this path is correct
 import { productsData } from '../utils/productsData';
-import { BsCursor } from 'react-icons/bs';
+// import { BsCursor } from 'react-icons/bs';
 
 const Body = () => {
- const [topratedProducts, settopratedproducts] = useState(productsData);
+ const [topratedProducts, settopratedproducts] = useState([]);
+ 
+ 
+ useeffect(() => {
+  fetchproducts();
+  }, []);
+
+  const fetchproducts = async () => {
+    const data = await fetch("https://fakestoreapi.com/products");
+    const json = await data.json();
+    settopratedproducts(json);
+  };
+
   const topratedproductsData = () => {
-  settopratedproducts (productsData.filter((product) => product.rating.rate >= 4));
+  settopratedproducts (topratedProducts.filter((product) => product.rating.rate >= 4));
     console.log(topratedProducts);
   };
   return (
